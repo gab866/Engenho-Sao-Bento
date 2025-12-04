@@ -1,0 +1,74 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.recipe-of-month {
+  background: $natural-gradient;
+
+  &__content {
+    display: grid;
+    gap: $spacing-3xl;
+    align-items: center;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__text {
+    @include flex-column;
+    gap: $spacing-lg;
+  }
+
+  &__label {
+    display: inline-block;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $accent-gold-dark;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $primary-green;
+    margin-bottom: $spacing-md;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: $text-medium;
+    line-height: 1.8;
+    margin-bottom: $spacing-md;
+  }
+
+  &__image {
+    position: relative;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-xl;
+    @include transition(transform, box-shadow);
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      
+      img {
+        transform: scale(1.1);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease-out;
+    }
+  }
+}

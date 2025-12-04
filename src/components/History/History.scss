@@ -1,0 +1,74 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.history {
+  background: $earth-cream;
+
+  &__content {
+    display: grid;
+    gap: $spacing-4xl;
+    align-items: center;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__text {
+    @include flex-column;
+    gap: $spacing-lg;
+    animation: slideInLeft 0.8s ease-out;
+  }
+
+  &__label {
+    display: inline-block;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $accent-gold-dark;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $primary-green;
+    margin: 0 0 $spacing-md 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__paragraph {
+    font-size: $font-size-base;
+    color: $text-medium;
+    line-height: 1.8;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__image {
+    position: relative;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-xl;
+    animation: slideInRight 0.8s ease-out;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease-out;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+}

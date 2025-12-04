@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.recipes-grid {
+  background: $earth-cream;
+  padding-top: $spacing-4xl;
+
+  &__wrapper {
+    display: grid;
+    gap: $spacing-xl;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    padding: $spacing-5xl 0;
+
+    p {
+      font-size: $font-size-lg;
+      color: $text-medium;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.why-choose {
+  background: $earth-cream;
+
+  &__grid {
+    margin-top: $spacing-3xl;
+  }
+
+  &__card {
+    text-align: center;
+    @include flex-column-center;
+    gap: $spacing-lg;
+  }
+
+  &__icon {
+    width: 80px;
+    height: 80px;
+    @include flex-center;
+    background: $harvest-gradient;
+    color: $white;
+    border-radius: $radius-full;
+    margin-bottom: $spacing-md;
+    @include transition(transform, box-shadow);
+
+    .why-choose__card:hover & {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: bounce 0.6s ease-in-out;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: scale(1.15) rotate(5deg) translateY(0);
+    }
+    50% {
+      transform: scale(1.15) rotate(5deg) translateY(-10px);
+    }
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $primary-green;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $text-medium;
+    line-height: 1.6;
+    margin: 0;
+  }
+}

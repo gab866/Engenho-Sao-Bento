@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.products-page {
+  &__intro {
+    background: $white;
+    text-align: center;
+  }
+
+  &__intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: $font-serif;
+      font-size: $font-size-4xl;
+      font-weight: $font-weight-bold;
+      color: $primary-green;
+      margin-bottom: $spacing-lg;
+
+      @include respond-to(md) {
+        font-size: $font-size-5xl;
+      }
+    }
+
+    p {
+      font-size: $font-size-lg;
+      color: $text-medium;
+      line-height: 1.8;
+      margin: 0;
+    }
+  }
+}

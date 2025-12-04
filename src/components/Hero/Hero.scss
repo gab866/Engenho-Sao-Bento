@@ -1,0 +1,174 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  &__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+    animation: kenBurns 20s ease-in-out infinite alternate;
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  
+  @keyframes kenBurns {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $dark-overlay;
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    @include container;
+    height: 100%;
+    @include flex-column-center;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 800px;
+    padding-top: 80px;
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $white;
+    margin-bottom: $spacing-lg;
+    line-height: 1.2;
+    animation: slideInLeft 0.8s ease-out;
+
+    @include respond-to(md) {
+      font-size: $font-size-6xl;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-sans;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-normal;
+    color: $white;
+    margin-bottom: $spacing-2xl;
+    line-height: 1.6;
+    animation: slideInLeft 0.8s ease-out 0.2s backwards;
+
+    @include respond-to(md) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  &__cta {
+    animation: slideInLeft 0.8s ease-out 0.4s backwards;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.2);
+    @include backdrop-blur(10px);
+    color: $white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    @include flex-center;
+    cursor: pointer;
+    @include transition(background-color, transform);
+    animation: float 3s ease-in-out infinite;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.15);
+      animation: none;
+    }
+    
+    &:active {
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    &--left {
+      left: $spacing-xl;
+
+      @include respond-to(md) {
+        left: $spacing-3xl;
+      }
+    }
+
+    &--right {
+      right: $spacing-xl;
+
+      @include respond-to(md) {
+        right: $spacing-3xl;
+      }
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: $spacing-2xl;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: $spacing-md;
+
+    @include respond-to(md) {
+      bottom: $spacing-3xl;
+    }
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    @include transition(background-color, transform);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+      transform: scale(1.2);
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    &.active {
+      background: $white;
+      transform: scale(1.3);
+      animation: pulse 2s ease-in-out infinite;
+    }
+  }
+}

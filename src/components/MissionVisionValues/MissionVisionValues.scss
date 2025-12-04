@@ -1,0 +1,101 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.mvv {
+  background: $white;
+
+  &__grid {
+    margin-top: $spacing-3xl;
+  }
+
+  &__card {
+    text-align: center;
+    @include flex-column-center;
+    gap: $spacing-lg;
+    animation: scaleIn 0.6s ease-out backwards;
+
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+
+  &__icon {
+    width: 80px;
+    height: 80px;
+    @include flex-center;
+    border-radius: $radius-full;
+    margin-bottom: $spacing-md;
+    @include transition(transform, box-shadow);
+
+    &--mission {
+      background: linear-gradient(135deg, $primary-green 0%, $primary-green-light 100%);
+      color: $white;
+    }
+
+    &--vision {
+      background: linear-gradient(135deg, $accent-gold 0%, $accent-gold-light 100%);
+      color: $white;
+    }
+
+    &--values {
+      background: linear-gradient(135deg, #e53935 0%, #ef5350 100%);
+      color: $white;
+    }
+
+    .mvv__card:hover & {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $primary-green;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-base;
+    color: $text-medium;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  &__values-list {
+    list-style: none;
+    @include flex-column;
+    gap: $spacing-md;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__value-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    font-size: $font-size-base;
+    color: $text-medium;
+    padding: $spacing-sm;
+    border-radius: $radius-base;
+    @include transition(background-color, transform);
+
+    svg {
+      flex-shrink: 0;
+      color: $primary-green;
+    }
+
+    &:hover {
+      background: rgba($primary-green, 0.05);
+      transform: translateX(5px);
+    }
+  }
+}

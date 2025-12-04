@@ -1,0 +1,137 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.recipe-filters {
+  background: $white;
+  padding: $spacing-2xl 0;
+  box-shadow: $shadow-base;
+  position: sticky;
+  top: 80px;
+  z-index: $z-fixed;
+  @include transition(padding);
+
+  &--compact {
+    padding: $spacing-md 0;
+
+    .recipe-filters__wrapper {
+      gap: $spacing-md;
+
+      @include respond-to(md) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .recipe-filters__search {
+      @include respond-to(md) {
+        max-width: 300px;
+      }
+    }
+
+    .recipe-filters__search-input {
+      padding: $spacing-sm $spacing-sm $spacing-sm calc(#{$spacing-sm} + 28px);
+      font-size: $font-size-sm;
+    }
+
+    .recipe-filters__search-icon {
+      left: $spacing-sm;
+    }
+
+    .recipe-filters__tabs {
+      gap: $spacing-xs;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding-bottom: $spacing-xs;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $earth-cream;
+        border-radius: $radius-base;
+      }
+    }
+
+    .recipe-filters__tab {
+      padding: $spacing-xs $spacing-md;
+      font-size: $font-size-xs;
+      white-space: nowrap;
+    }
+  }
+
+  &__wrapper {
+    @include flex-column;
+    gap: $spacing-lg;
+  }
+
+  &__search {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__search-icon {
+    position: absolute;
+    left: $spacing-md;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-medium;
+    pointer-events: none;
+    @include transition(left);
+  }
+
+  &__search-input {
+    width: 100%;
+    padding: $spacing-md $spacing-md $spacing-md calc(#{$spacing-md} + 28px);
+    border: 2px solid $earth-cream;
+    border-radius: $radius-lg;
+    font-size: $font-size-base;
+    font-family: $font-sans;
+    @include transition(border-color, box-shadow, padding, font-size);
+
+    &:focus {
+      outline: none;
+      border-color: $primary-green;
+      box-shadow: 0 0 0 3px rgba($primary-green, 0.1);
+    }
+
+    &::placeholder {
+      color: $text-light;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include transition(gap);
+  }
+
+  &__tab {
+    padding: $spacing-sm $spacing-lg;
+    border: 2px solid $earth-cream;
+    border-radius: $radius-full;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-medium;
+    background: $white;
+    cursor: pointer;
+    @include transition(all);
+
+    &:hover {
+      border-color: $primary-green-light;
+      color: $primary-green;
+    }
+
+    &.active {
+      background: $primary-green;
+      border-color: $primary-green;
+      color: $white;
+    }
+  }
+}

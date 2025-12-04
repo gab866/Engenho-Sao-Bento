@@ -1,0 +1,115 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.product-card {
+  background: $white;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-base;
+  cursor: pointer;
+  @include transition(transform, box-shadow);
+  animation: scaleIn 0.6s ease-out backwards;
+
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+  }
+
+  &__image {
+    aspect-ratio: 1 / 1;
+    background: $earth-cream;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__image-placeholder {
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+    background: linear-gradient(135deg, $earth-cream 0%, darken($earth-cream, 5%) 100%);
+  }
+
+  &__brand {
+    font-family: $font-serif;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: rgba($primary-green, 0.2);
+    text-align: center;
+  }
+
+  &__content {
+    padding: $spacing-lg;
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+
+  &__badge {
+    display: inline-block;
+    align-self: flex-start;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $radius-full;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &--white {
+      background: rgba($primary-green, 0.1);
+      color: $primary-green;
+    }
+
+    &--brown {
+      background: rgba(#8d6e63, 0.15);
+      color: #5d4037;
+    }
+
+    &--gold {
+      background: rgba($accent-gold, 0.2);
+      color: $accent-gold-dark;
+    }
+
+    &--purple {
+      background: rgba(#9c27b0, 0.15);
+      color: #6a1b9a;
+    }
+  }
+
+  &__name {
+    font-family: $font-serif;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    margin: 0;
+    @include line-clamp(2);
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: $text-medium;
+    margin: 0;
+    @include line-clamp(2);
+    line-height: 1.5;
+  }
+
+  &__weights {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+    margin-top: $spacing-xs;
+  }
+
+  &__weight {
+    padding: $spacing-xs $spacing-sm;
+    background: $earth-cream;
+    border-radius: $radius-base;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $text-dark;
+  }
+}

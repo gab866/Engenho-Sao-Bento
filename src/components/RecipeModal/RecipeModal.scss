@@ -1,0 +1,249 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.recipe-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  @include flex-center;
+  z-index: $z-modal;
+  padding: $spacing-lg;
+  animation: fadeIn 0.3s ease-out;
+  overflow-y: auto;
+
+  &__content {
+    background: $white;
+    border-radius: $radius-xl;
+    max-width: 1000px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  &__close {
+    position: absolute;
+    top: $spacing-lg;
+    right: $spacing-lg;
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    background: rgba($text-dark, 0.1);
+    border-radius: $radius-full;
+    color: $text-dark;
+    @include transition(background-color, transform);
+    z-index: 2;
+
+    &:hover {
+      background: rgba($text-dark, 0.2);
+      transform: scale(1.1);
+    }
+  }
+
+  &__body {
+    display: grid;
+    gap: $spacing-2xl;
+    padding: $spacing-2xl;
+
+    @include respond-to(lg) {
+      grid-template-columns: 2fr 3fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  &__image {
+    aspect-ratio: 4 / 3;
+    background: $earth-cream;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+
+    @media (max-width: #{$breakpoint-lg - 1px}) {
+      position: relative;
+    }
+  }
+
+  &__image-placeholder {
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+    background: linear-gradient(135deg, darken($earth-cream, 15%) 0%, $earth-cream 100%);
+    padding: $spacing-xl;
+  }
+
+  &__recipe-name {
+    font-family: $font-serif;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: rgba($primary-green, 0.3);
+    text-align: center;
+  }
+
+  &__info {
+    @include flex-column;
+    gap: $spacing-xl;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: $spacing-xl;
+    flex-wrap: wrap;
+    padding-bottom: $spacing-lg;
+    border-bottom: 2px solid $earth-cream;
+  }
+
+  &__meta-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $text-dark;
+
+    svg {
+      color: $primary-green;
+    }
+  }
+
+  &__section {
+    padding-top: $spacing-lg;
+    border-top: 1px solid $earth-cream;
+
+    &:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-serif;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $primary-green;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__ingredients {
+    list-style: none;
+    @include flex-column;
+    gap: $spacing-sm;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__ingredient {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  &__checkbox {
+    margin-top: 4px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  &__ingredient label {
+    font-size: $font-size-base;
+    color: $text-dark;
+    cursor: pointer;
+    @include transition(color, text-decoration);
+
+    &.checked {
+      color: $text-light;
+      text-decoration: line-through;
+    }
+  }
+
+  &__instructions {
+    @include flex-column;
+    gap: $spacing-md;
+    margin: 0;
+    padding-left: $spacing-xl;
+  }
+
+  &__instruction {
+    font-size: $font-size-base;
+    color: $text-dark;
+    line-height: 1.7;
+    padding-left: $spacing-sm;
+
+    &::marker {
+      color: $primary-green;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &__tips {
+    background: rgba($accent-gold, 0.1);
+    padding: $spacing-lg;
+    border-radius: $radius-lg;
+    border-left: 4px solid $accent-gold;
+
+    p {
+      font-size: $font-size-base;
+      color: $text-dark;
+      line-height: 1.7;
+      margin: 0;
+      font-style: italic;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    padding-top: $spacing-lg;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      flex: 1;
+      justify-content: center;
+      min-width: 180px;
+
+      @media (max-width: #{$breakpoint-sm - 1px}) {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+
+@media print {
+  .recipe-modal__close,
+  .recipe-modal__actions {
+    display: none !important;
+  }
+
+  .recipe-modal {
+    position: static;
+    background: white;
+    padding: 0;
+  }
+
+  .recipe-modal__content {
+    max-width: 100%;
+    max-height: none;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,166 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.timeline {
+  background: $natural-gradient;
+
+  &__wrapper {
+    position: relative;
+    margin-top: $spacing-4xl;
+    padding: $spacing-2xl 0;
+  }
+
+  &__line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      $primary-green 10%,
+      $primary-green 90%,
+      transparent 100%
+    );
+    transform: translateX(-50%);
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      left: 30px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: $spacing-4xl;
+    animation: fadeIn 0.8s ease-out backwards;
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.15}s;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--left {
+      @include respond-to(md) {
+        padding-right: calc(50% + #{$spacing-3xl});
+        text-align: right;
+
+        .timeline__content {
+          margin-left: auto;
+        }
+      }
+    }
+
+    &--right {
+      @include respond-to(md) {
+        padding-left: calc(50% + #{$spacing-3xl});
+        text-align: left;
+
+        .timeline__content {
+          margin-right: auto;
+        }
+      }
+    }
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      padding-left: 80px;
+      text-align: left;
+    }
+  }
+
+  &__content {
+    background: $white;
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+    max-width: 500px;
+    position: relative;
+    @include transition(transform, box-shadow);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-xl;
+    }
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      max-width: 100%;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    @include flex-center;
+    background: $white;
+    border: 4px solid $primary-green;
+    border-radius: $radius-full;
+    color: $primary-green;
+    box-shadow: 0 0 0 4px $earth-cream;
+    z-index: 2;
+
+    @include respond-to(md) {
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      left: 0;
+      top: 0;
+    }
+
+    .timeline__item--left & {
+      @include respond-to(md) {
+        left: auto;
+        right: calc(-#{$spacing-3xl} - 30px);
+        transform: none;
+      }
+    }
+
+    .timeline__item--right & {
+      @include respond-to(md) {
+        left: calc(-#{$spacing-3xl} - 30px);
+        right: auto;
+        transform: none;
+      }
+    }
+  }
+
+  &__year {
+    display: inline-block;
+    font-family: $font-serif;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $primary-green;
+    margin-bottom: $spacing-sm;
+
+    @include respond-to(md) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    margin: 0 0 $spacing-sm 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $text-medium;
+    line-height: 1.7;
+    margin: 0;
+  }
+}

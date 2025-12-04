@@ -1,0 +1,92 @@
+// Colors - Engenho São Bento Palette
+$primary-green: #2d5016;
+$primary-green-light: #4a7c2c;
+$primary-green-dark: #1a3009;
+
+$accent-gold: #d4a574;
+$accent-gold-light: #e6c9a0;
+$accent-gold-dark: #b8865a;
+
+$earth-brown: #6b4423;
+$earth-beige: #f5f1e8;
+$earth-cream: #faf8f3;
+
+$text-dark: #2c2c2c;
+$text-medium: #5a5a5a;
+$text-light: #8a8a8a;
+
+$white: #ffffff;
+$black: #000000;
+
+// Gradients
+$harvest-gradient: linear-gradient(135deg, $accent-gold 0%, $primary-green-light 100%);
+$dark-overlay: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+$natural-gradient: linear-gradient(180deg, $earth-cream 0%, $earth-beige 100%);
+
+// Typography
+$font-serif: 'Playfair Display', Georgia, serif;
+$font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.875rem;   // 14px
+$font-size-base: 1rem;     // 16px
+$font-size-lg: 1.125rem;   // 18px
+$font-size-xl: 1.25rem;    // 20px
+$font-size-2xl: 1.5rem;    // 24px
+$font-size-3xl: 1.875rem;  // 30px
+$font-size-4xl: 2.25rem;   // 36px
+$font-size-5xl: 3rem;      // 48px
+$font-size-6xl: 3.75rem;   // 60px
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-xs: 0.5rem;    // 8px
+$spacing-sm: 0.75rem;   // 12px
+$spacing-md: 1rem;      // 16px
+$spacing-lg: 1.5rem;    // 24px
+$spacing-xl: 2rem;      // 32px
+$spacing-2xl: 3rem;     // 48px
+$spacing-3xl: 4rem;     // 64px
+$spacing-4xl: 6rem;     // 96px
+$spacing-5xl: 8rem;     // 128px
+
+// Breakpoints
+$breakpoint-xs: 320px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Transitions
+$transition-fast: 0.15s ease-in-out;
+$transition-base: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+// Border Radius
+$radius-sm: 0.25rem;   // 4px
+$radius-base: 0.5rem;  // 8px
+$radius-md: 0.75rem;   // 12px
+$radius-lg: 1rem;      // 16px
+$radius-xl: 1.5rem;    // 24px
+$radius-full: 9999px;
+
+// Z-index
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;
