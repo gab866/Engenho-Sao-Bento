@@ -21,6 +21,7 @@ const Header = () => {
     { label: 'Sobre', href: '/sobre', type: 'route' },
     { label: 'Produtos', href: '/produtos', type: 'route' },
     { label: 'Receitas', href: '/receitas', type: 'route' },
+    { label: 'Trabalhe Conosco', href: '/trabalhe-conosco', type: 'route' },
     { label: 'SAC', href: '#sac', type: 'hash' },
     { label: 'Exportação', href: '#exportacao', type: 'hash' },
     { label: 'Downloads', href: '#downloads', type: 'hash' },

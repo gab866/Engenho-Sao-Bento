@@ -10,7 +10,7 @@ const CTASection = () => {
             Junte-se à nossa equipe ou torne-se um parceiro comercial
           </p>
           <div className="cta-section__buttons">
-            <a href="#trabalhe-conosco" className="btn btn-primary">
+            <a href="/trabalhe-conosco" className="btn btn-primary">
               Trabalhe Conosco
             </a>
             <a href="#representante" className="btn btn-outline">

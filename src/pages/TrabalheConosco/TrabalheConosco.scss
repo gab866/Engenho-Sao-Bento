@@ -1,0 +1,277 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.trabalhe-conosco {
+  min-height: 100vh;
+
+  // Hero Section
+  &__hero {
+    position: relative;
+    background: linear-gradient(135deg, $primary-green 0%, rgba($primary-green-light, 0.8) 100%);
+    padding: $spacing-5xl $spacing-lg;
+    text-align: center;
+    color: $white;
+
+    @include respond-to(md) {
+      padding: $spacing-5xl $spacing-2xl;
+    }
+  }
+
+  &__hero-content {
+    @include container;
+    @include flex-column-center;
+    gap: $spacing-lg;
+  }
+
+  &__hero-title {
+    font-family: $font-serif;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__hero-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  // Content Section
+  &__content {
+    padding: $spacing-4xl $spacing-lg;
+    background: $earth-cream;
+
+    @include respond-to(md) {
+      padding: $spacing-5xl $spacing-2xl;
+    }
+  }
+
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  // Left Column - Information
+  &__info {
+    @include flex-column;
+    gap: $spacing-2xl;
+  }
+
+  &__section-title {
+    font-family: $font-serif;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    margin: 0;
+  }
+
+  &__text {
+    @include flex-column;
+    gap: $spacing-lg;
+
+    p {
+      color: $text-medium;
+      line-height: 1.7;
+      margin: 0;
+    }
+  }
+
+  &__benefits {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+
+  &__benefits-title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $text-dark;
+    margin: 0;
+  }
+
+  &__benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+
+  &__benefit-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $text-medium;
+  }
+
+  &__benefit-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $accent-gold;
+    flex-shrink: 0;
+  }
+
+  // Right Column - Form Card
+  &__form-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    background: $white;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+    padding: $spacing-2xl;
+
+    @include respond-to(md) {
+      padding: $spacing-3xl;
+    }
+  }
+
+  &__card-header {
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__card-title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  &__card-description {
+    color: $text-medium;
+    margin: 0;
+  }
+
+  // Form Styles
+  &__form {
+    @include flex-column;
+    gap: $spacing-lg;
+  }
+
+  &__form-field {
+    @include flex-column;
+    gap: $spacing-xs;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-dark;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 2px solid lighten($text-light, 20%);
+    border-radius: $radius-base;
+    font-size: $font-size-base;
+    font-family: $font-sans;
+    color: $text-dark;
+    background: $white;
+    @include transition(border-color, box-shadow);
+
+    &::placeholder {
+      color: $text-light;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-green;
+      box-shadow: 0 0 0 3px rgba($primary-green, 0.1);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  &__error {
+    color: #dc2626;
+    font-size: $font-size-sm;
+    margin: 0;
+  }
+
+  // File Upload
+  &__upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    padding: $spacing-2xl;
+    border: 2px dashed lighten($text-light, 20%);
+    border-radius: $radius-lg;
+    cursor: pointer;
+    @include transition(border-color, background-color);
+
+    &:hover {
+      border-color: $primary-green;
+      background-color: rgba($primary-green, 0.02);
+    }
+  }
+
+  &__upload-icon {
+    width: 32px;
+    height: 32px;
+    color: $text-light;
+  }
+
+  &__upload-text {
+    color: $text-medium;
+    font-size: $font-size-sm;
+    text-align: center;
+  }
+
+  &__file-input {
+    display: none;
+  }
+
+  // Submit Button
+  &__submit-btn {
+    width: 100%;
+    padding: $spacing-md $spacing-xl;
+    background: $primary-green;
+    color: $white;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    border: none;
+    border-radius: $radius-base;
+    cursor: pointer;
+    @include transition(background-color, transform, box-shadow);
+
+    &:hover {
+      background: $primary-green-dark;
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($primary-green, 0.3);
+    }
+  }
+}
