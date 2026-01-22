@@ -13,9 +13,11 @@ const BrandShowcase = ({ brand, imagePosition = 'left' }: BrandShowcaseProps) =>
       <div className="container">
         <div className="brand-showcase__content">
           <div className="brand-showcase__image">
-            <div className="brand-showcase__image-placeholder">
-              <span className="brand-showcase__logo">{brand.name}</span>
-            </div>
+            <img 
+              src={brand.image} 
+              alt={brand.name} 
+              className="brand-showcase__image-img" 
+            />
           </div>
 
           <div className="brand-showcase__info">

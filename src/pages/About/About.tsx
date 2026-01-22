@@ -1,11 +1,10 @@
 import PageHero from '../../components/PageHero/PageHero';
 import History from '../../components/History/History';
 import MissionVisionValues from '../../components/MissionVisionValues/MissionVisionValues';
-import Timeline from '../../components/Timeline/Timeline';
-import Certifications from '../../components/Certifications/Certifications';
+import Processes from '../../components/Processes/Processes';
 import CTASection from '../../components/CTASection/CTASection';
 import './About.scss';
-import factoryImg from '../../assets/images/factory-exterior.png';
+import factoryImg from '../../assets/images/engenho.JPEG';
 
 const About = () => {
   return (
@@ -17,8 +16,7 @@ const About = () => {
       />
       <History />
       <MissionVisionValues />
-      <Timeline />
-      <Certifications />
+      <Processes />
       <CTASection />
     </div>
   );

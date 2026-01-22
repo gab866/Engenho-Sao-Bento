@@ -16,8 +16,12 @@
     padding: $spacing-md 0;
     box-shadow: $shadow-md;
 
-    .header__logo-text {
-      color: $primary-green;
+    .header__logo-img {
+      height: 60px;
+
+      @include respond-to(md) {
+        height: 70px;
+      }
     }
 
     .header__nav-link {
@@ -42,15 +46,13 @@
     z-index: $z-sticky + 1;
     animation: fadeIn 0.8s ease-out;
 
-    &-text {
-      font-family: $font-serif;
-      font-size: $font-size-2xl;
-      font-weight: $font-weight-bold;
-      color: $white;
-      @include transition(color);
+    &-img {
+      height: 70px;
+      width: auto;
+      @include transition(height, filter);
 
       @include respond-to(md) {
-        font-size: $font-size-3xl;
+        height: 80px;
       }
     }
   }

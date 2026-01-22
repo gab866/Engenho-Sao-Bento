@@ -33,7 +33,7 @@ const Footer = () => {
             <ul className="footer__contact">
               <li>
                 <Phone size={18} />
-                <span>(11) 1234-5678</span>
+                <span>+55 (53) 3025-3500</span>
               </li>
               <li>
                 <Mail size={18} />
@@ -41,7 +41,7 @@ const Footer = () => {
               </li>
               <li>
                 <MapPin size={18} />
-                <span>São Paulo, SP - Brasil</span>
+                <span>Pelotas - RS - Brasil</span>
               </li>
             </ul>
           </div>

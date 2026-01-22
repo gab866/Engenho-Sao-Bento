@@ -49,31 +49,26 @@
 
   &__image {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 2481 / 3508;
     border-radius: $radius-xl;
     overflow: hidden;
     box-shadow: $shadow-xl;
     animation: slideInLeft 0.8s ease-out;
+    background: $earth-cream;
 
     .brand-showcase--right & {
       animation: slideInRight 0.8s ease-out;
     }
   }
 
-  &__image-placeholder {
+  &__image-img {
     width: 100%;
     height: 100%;
-    @include flex-center;
-    background: linear-gradient(135deg, $primary-green 0%, $primary-green-light 100%);
-  }
+    object-fit: contain;
+    display: block;
+    @include transition(transform);
 
-  &__logo {
-    font-family: $font-serif;
-    font-size: $font-size-6xl;
-    font-weight: $font-weight-bold;
-    color: rgba($white, 0.3);
-    text-align: center;
-    text-transform: uppercase;
+    
   }
 
   &__info {

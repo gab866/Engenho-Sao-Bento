@@ -1,3 +1,8 @@
+import cachorrozImg from '../assets/images/cachorroz.jpeg';
+import blueValeImg from '../assets/images/bluevale.jpeg';
+import bemCaseiroImg from '../assets/images/bemcaseiro.jpeg';
+import eliteImg from '../assets/images/elite.jpeg';
+
 export interface Brand {
   id: string;
   name: string;
@@ -22,7 +27,7 @@ export const brands: Brand[] = [
       'Rigorosa seleção e beneficiamento dos grãos',
       'Embalagens de 500g, 1kg e 5kg',
     ],
-    image: '/images/cachorroz-brand.png',
+    image: cachorrozImg,
   },
   {
     id: 'blue-vale',
@@ -38,7 +43,7 @@ export const brands: Brand[] = [
       'Processo de beneficiamento que mantém propriedades nutricionais',
       'Certificações de qualidade internacional',
     ],
-    image: '/images/bluevale-brand.png',
+    image: blueValeImg,
   },
   {
     id: 'bem-caseiro',
@@ -54,6 +59,22 @@ export const brands: Brand[] = [
       'Embalagens práticas e de fácil armazenamento',
       'Ideal para o dia a dia e ocasiões especiais',
     ],
-    image: '/images/bemcaseiro-brand.png',
+    image: bemCaseiroImg,
+  },
+  {
+    id: 'elite',
+    name: 'Elite',
+    tagline: 'Excelência em Cada Grão',
+    description:
+      'Elite é a marca que representa o mais alto padrão de qualidade do Engenho São Bento. Desenvolvida para clientes exigentes que buscam o melhor arroz do mercado, a linha Elite oferece grãos cuidadosamente selecionados, com processos de beneficiamento de última geração que garantem pureza, sabor e textura incomparáveis. Cada embalagem Elite é sinônimo de excelência e tradição.',
+    features: [
+      'Arroz Tipo 1 Premium - Seleção rigorosa dos melhores grãos',
+      'Arroz Parboilizado Elite - Nutrição e sabor em perfeito equilíbrio',
+      'Arroz Integral Elite - Máxima preservação de nutrientes',
+      'Controle de qualidade em todas as etapas de produção',
+      'Embalagens especiais que mantêm o frescor',
+      'Produto certificado e reconhecido nacionalmente',
+    ],
+    image: eliteImg,
   },
 ];

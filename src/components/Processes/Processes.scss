@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.processes {
+  background: $natural-gradient;
+
+  .section-label {
+    display: inline-block;
+    font-size: 35px;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $accent-gold-dark;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-3xl;
+    margin-top: $spacing-4xl;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(lg) {
+      gap: $spacing-4xl;
+    }
+  }
+
+  &__card {
+    background: $white;
+    padding: $spacing-3xl;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-lg;
+    @include transition(transform, box-shadow);
+    animation: fadeIn 0.8s ease-out backwards;
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.15}s;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: $shadow-xl;
+    }
+  }
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+    @include flex-center;
+    background: linear-gradient(135deg, $primary-green 0%, darken($primary-green, 10%) 100%);
+    border-radius: $radius-lg;
+    color: $white;
+    margin-bottom: $spacing-xl;
+    box-shadow: 0 4px 12px rgba($primary-green, 0.3);
+    @include transition(transform);
+
+    .processes__card:hover & {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $primary-green;
+    margin: 0 0 $spacing-lg 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $text-medium;
+    line-height: 1.8;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-lg;
+    }
+  }
+}

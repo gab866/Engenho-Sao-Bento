@@ -40,7 +40,7 @@ const Header = () => {
       <div className="header__container">
         <div className="header__logo">
           <Link to="/" onClick={handleLinkClick}>
-            <span className="header__logo-text">Engenho São Bento</span>
+            <img src="/src/assets/images/logoesb.png" alt="Engenho São Bento" className="header__logo-img" />
           </Link>
         </div>
 

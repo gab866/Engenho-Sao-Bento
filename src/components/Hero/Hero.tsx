@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './Hero.scss';
-import heroImage1 from '../../assets/images/hero-1.png';
-import heroImage2 from '../../assets/images/hero-2.png';
-import heroImage3 from '../../assets/images/hero-3.png';
+import heroImage1 from '../../assets/images/hero-1.jpg';
+import heroImage2 from '../../assets/images/hero-2.JPEG';
+import heroImage3 from '../../assets/images/hero-3.JPEG';
 
 interface Slide {
   id: number;
