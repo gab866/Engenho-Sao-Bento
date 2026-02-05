@@ -59,6 +59,44 @@
     padding: 4rem 2rem;
   }
 
+  &__brand-section {
+    margin-bottom: 4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__brand-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c5f2d;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid #97bc62;
+    display: inline-block;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2c5f2d 0%, #97bc62 100%);
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
