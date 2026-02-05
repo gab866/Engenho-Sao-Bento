@@ -6,6 +6,7 @@ import About from './pages/About/About';
 import Products from './pages/Products/Products';
 import Recipes from './pages/Recipes/Recipes';
 import TrabalheConosco from './pages/TrabalheConosco/TrabalheConosco';
+import Downloads from './pages/Downloads/Downloads';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/produtos" element={<Products />} />
         <Route path="/receitas" element={<Recipes />} />
         <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
+        <Route path="/downloads" element={<Downloads />} />
       </Routes>
       <Footer />
     </BrowserRouter>
