@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import logo from '../../assets/images/logoesb.png';
 import './Header.scss';
 
 const Header = () => {
@@ -40,7 +41,7 @@ const Header = () => {
       <div className="header__container">
         <div className="header__logo">
           <Link to="/" onClick={handleLinkClick}>
-            <img src="/src/assets/images/logoesb.png" alt="Engenho São Bento" className="header__logo-img" />
+            <img src={logo} alt="Engenho São Bento" className="header__logo-img" />
           </Link>
         </div>
 
