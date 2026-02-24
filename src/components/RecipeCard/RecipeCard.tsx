@@ -20,12 +20,26 @@ const RecipeCard = ({ recipe, onClick }: RecipeCardProps) => {
   return (
     <div className="recipe-card" onClick={onClick}>
       <div className="recipe-card__image">
-        <div className="recipe-card__image-placeholder">
-          <span className="recipe-card__time-badge">
-            <Clock size={16} />
-            {recipe.time}min
-          </span>
-        </div>
+        {recipe.image ? (
+          <>
+            <img
+              src={recipe.image}
+              alt={recipe.title}
+              className="recipe-card__img"
+            />
+            <span className="recipe-card__time-badge">
+              <Clock size={16} />
+              {recipe.time}min
+            </span>
+          </>
+        ) : (
+          <div className="recipe-card__image-placeholder">
+            <span className="recipe-card__time-badge">
+              <Clock size={16} />
+              {recipe.time}min
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="recipe-card__content">

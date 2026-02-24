@@ -68,9 +68,17 @@ const RecipeModal = ({ recipe, isOpen, onClose }: RecipeModalProps) => {
 
         <div className="recipe-modal__body">
           <div className="recipe-modal__image">
-            <div className="recipe-modal__image-placeholder">
-              <span className="recipe-modal__recipe-name">{recipe.title}</span>
-            </div>
+            {recipe.image ? (
+              <img
+                src={recipe.image}
+                alt={recipe.title}
+                className="recipe-modal__img"
+              />
+            ) : (
+              <div className="recipe-modal__image-placeholder">
+                <span className="recipe-modal__recipe-name">{recipe.title}</span>
+              </div>
+            )}
           </div>
 
           <div className="recipe-modal__info">

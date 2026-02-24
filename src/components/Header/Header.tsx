@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '../../assets/images/logoesb.png';
 import './Header.scss';
 
+// Rotas cujo fundo inicial é claro (header precisa de letras escuras mesmo sem scroll)
+const LIGHT_BG_ROUTES = ['/exportacao'];
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isLightBgRoute = LIGHT_BG_ROUTES.includes(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,8 +30,8 @@ const Header = () => {
     { label: 'Receitas', href: '/receitas', type: 'route' },
     { label: 'Trabalhe Conosco', href: '/trabalhe-conosco', type: 'route' },
     { label: 'Downloads', href: '/downloads', type: 'route' },
+    { label: 'Exportação', href: '/exportacao', type: 'route' },
     { label: 'SAC', href: '#sac', type: 'hash' },
-    { label: 'Exportação', href: '#exportacao', type: 'hash' },
   ];
 
   const toggleMobileMenu = () => {
@@ -37,7 +43,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''} ${isLightBgRoute && !isScrolled ? 'light-bg' : ''}`}>
       <div className="header__container">
         <div className="header__logo">
           <Link to="/" onClick={handleLinkClick}>

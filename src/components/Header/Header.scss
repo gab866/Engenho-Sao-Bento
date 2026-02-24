@@ -37,6 +37,25 @@
     }
   }
 
+  // Páginas com fundo inicial claro (ex: Export) — letras escuras sem fundo
+  &.light-bg {
+    background: rgba(255, 255, 255, 0.92);
+    @include backdrop-blur(10px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+
+    .header__nav-link {
+      color: $text-dark;
+
+      &:hover {
+        color: $primary-green;
+      }
+    }
+
+    .header__mobile-toggle {
+      color: $text-dark;
+    }
+  }
+
   &__container {
     @include container;
     @include flex-between;
