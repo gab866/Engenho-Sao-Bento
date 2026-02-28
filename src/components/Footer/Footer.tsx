@@ -25,7 +25,7 @@ const Footer = () => {
               <li><Link to="/produtos">Produtos</Link></li>
               <li><Link to="/receitas">Receitas</Link></li>
               <li><Link to="/exportacao">Exportação</Link></li>
-              <li><a href="#sac">SAC</a></li>
+              <li><Link to="/sac">SAC</Link></li>
             </ul>
           </div>
 

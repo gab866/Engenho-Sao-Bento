@@ -1,0 +1,206 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.sac {
+  min-height: 100vh;
+
+  // Hero Section
+  &__hero {
+    position: relative;
+    background: linear-gradient(135deg, $primary-green 0%, rgba($primary-green-light, 0.8) 100%);
+    padding: $spacing-5xl $spacing-lg;
+    text-align: center;
+    color: $white;
+
+    @include respond-to(md) {
+      padding: $spacing-5xl $spacing-2xl;
+    }
+  }
+
+  &__hero-content {
+    @include container;
+    @include flex-column-center;
+    gap: $spacing-lg;
+  }
+
+  &__hero-title {
+    font-family: $font-serif;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__hero-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  // Content Section
+  &__content {
+    padding: $spacing-4xl $spacing-lg;
+    background: $earth-cream;
+
+    @include respond-to(md) {
+      padding: $spacing-5xl $spacing-2xl;
+    }
+  }
+
+  &__container {
+    @include container;
+    display: flex;
+    justify-content: center;
+    padding-bottom: $spacing-xl;
+  }
+
+  // Information Content
+  &__info {
+    @include flex-column;
+    gap: $spacing-2xl;
+    max-width: 800px;
+    width: 100%;
+    
+    // Add a card background to keep it neat
+    background: $white;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+    padding: $spacing-2xl;
+
+    @include respond-to(md) {
+      padding: $spacing-3xl;
+    }
+  }
+
+  &__section-title {
+    font-family: $font-serif;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    margin: 0;
+    text-align: center;
+  }
+
+  // Contact Details
+  &__contact-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    margin-top: $spacing-md;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+    }
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    @include respond-to(md) {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: $spacing-md;
+      background: $earth-cream;
+      border-radius: $radius-md;
+    }
+  }
+
+  &__contact-icon {
+    color: $primary-green;
+    margin-top: 2px;
+    flex-shrink: 0;
+
+    @include respond-to(md) {
+      margin-top: 0;
+      margin-bottom: $spacing-xs;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__contact-label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $text-dark;
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  &__contact-value {
+    color: $text-medium;
+    margin: 0;
+    word-break: break-word;
+  }
+
+  // FAQ Section
+  &__faq {
+    margin-top: $spacing-lg;
+  }
+
+  &__faq-title {
+    font-family: $font-serif;
+    font-size: $font-size-2xl;
+    color: $text-dark;
+    margin: 0 0 $spacing-lg 0;
+    text-align: center;
+  }
+
+  &__faq-list {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+
+  &__faq-item {
+    background: $earth-cream;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+    border: 1px solid transparent;
+    @include transition(box-shadow, border-color);
+
+    &.open {
+      box-shadow: $shadow-md;
+      border-color: rgba($primary-green, 0.2);
+    }
+  }
+
+  &__faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-md;
+    background: none;
+    border: none;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $text-dark;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-green;
+    }
+  }
+
+  &__faq-answer {
+    padding: 0 $spacing-md $spacing-md $spacing-md;
+    color: $text-medium;
+    line-height: 1.6;
+
+    p {
+      margin: 0;
+    }
+  }
+}

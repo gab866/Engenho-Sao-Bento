@@ -31,7 +31,7 @@ const Header = () => {
     { label: 'Trabalhe Conosco', href: '/trabalhe-conosco', type: 'route' },
     { label: 'Downloads', href: '/downloads', type: 'route' },
     { label: 'Exportação', href: '/exportacao', type: 'route' },
-    { label: 'SAC', href: '#sac', type: 'hash' },
+    { label: 'SAC', href: '/sac', type: 'route' },
   ];
 
   const toggleMobileMenu = () => {

@@ -2,6 +2,7 @@ import PageHero from '../../components/PageHero/PageHero';
 import BrandShowcase from '../../components/BrandShowcase/BrandShowcase';
 import CTASection from '../../components/CTASection/CTASection';
 import { brands } from '../../data/brandsData';
+import productsHeroImage from '../../assets/images/produtos.JPEG';
 import './Products.scss';
 
 const Products = () => {
@@ -10,7 +11,7 @@ const Products = () => {
       <PageHero
         title="Nossas Marcas"
         subtitle="Tradição, qualidade e inovação em cada produto"
-        backgroundImage="/images/products-hero.png"
+        backgroundImage={productsHeroImage}
       />
 
       <div className="products-page__intro section">

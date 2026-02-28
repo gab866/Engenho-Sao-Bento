@@ -9,6 +9,8 @@ import TrabalheConosco from './pages/TrabalheConosco/TrabalheConosco';
 import Downloads from './pages/Downloads/Downloads';
 import Export from './pages/Export/Export';
 
+import Sac from './pages/Sac/Sac';
+
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +23,7 @@ function App() {
         <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
         <Route path="/downloads" element={<Downloads />} />
         <Route path="/exportacao" element={<Export />} />
+        <Route path="/sac" element={<Sac />} />
       </Routes>
       <Footer />
     </BrowserRouter>

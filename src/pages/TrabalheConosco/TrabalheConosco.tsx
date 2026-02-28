@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast, Toaster } from 'sonner';
 import { Upload } from 'lucide-react';
+import PageHero from '../../components/PageHero/PageHero';
+import estruturaImage from '../../assets/images/estrutura.JPEG';
 import './TrabalheConosco.scss';
 
 // Zod validation schema
@@ -23,8 +25,7 @@ const TrabalheConosco = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -49,19 +50,15 @@ const TrabalheConosco = () => {
     }
   };
 
-  const onSubmit = (data: FormData) => {
-    console.log('Form data:', data);
-    console.log('Selected file:', selectedFile);
+  const formRef = useRef<HTMLFormElement>(null);
 
-    toast.success('Currículo enviado com sucesso!', {
-      description: 'Entraremos em contato em breve.',
-    });
-
-    // Reset form and file
-    reset();
-    setSelectedFile(null);
-    const fileInput = document.getElementById('resume-upload') as HTMLInputElement;
-    if (fileInput) fileInput.value = '';
+  const onSubmit = () => {
+    // Como a validação do Zod (react-hook-form) já verificou os campos e passou por eles:
+    // Submetemos o formulário no formato 'antigo' do navegador
+    // Isso é necessário porque o Web3Forms exige isso para aceitar arquivos na versão gratuita.
+    if (formRef.current) {
+      formRef.current.submit();
+    }
   };
 
   const benefits = [
@@ -78,14 +75,11 @@ const TrabalheConosco = () => {
       <Toaster position="top-right" richColors />
 
       {/* Hero Section */}
-      <section className="trabalhe-conosco__hero">
-        <div className="trabalhe-conosco__hero-content">
-          <h1 className="trabalhe-conosco__hero-title">Trabalhe Conosco</h1>
-          <p className="trabalhe-conosco__hero-subtitle">
-            Faça parte de uma equipe dedicada à excelência e tradição
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Trabalhe Conosco"
+        subtitle="Faça parte de uma equipe dedicada à excelência e tradição"
+        backgroundImage={estruturaImage}
+      />
 
       {/* Main Content Section */}
       <section className="trabalhe-conosco__content">
@@ -129,7 +123,17 @@ const TrabalheConosco = () => {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="trabalhe-conosco__form">
+              <form 
+                ref={formRef}
+                action="https://formsubmit.co/curriculo@esbento.com.br"
+                method="POST"
+                encType="multipart/form-data"
+                onSubmit={handleSubmit(onSubmit)} 
+                className="trabalhe-conosco__form"
+              >
+                {/* Substitua o email acima pelo email do Engenho São Bento */}
+                <input type="hidden" name="_subject" value="Novo currículo - Trabalhe Conosco Engenho São Bento" />
+                <input type="hidden" name="_captcha" value="false" />
                 {/* Name Field */}
                 <div className="trabalhe-conosco__form-field">
                   <label htmlFor="name" className="trabalhe-conosco__label">
@@ -229,6 +233,7 @@ const TrabalheConosco = () => {
                   <input
                     id="resume-upload"
                     type="file"
+                    name="attachment"
                     accept=".pdf,.doc,.docx"
                     onChange={handleFileChange}
                     className="trabalhe-conosco__file-input"
@@ -236,8 +241,8 @@ const TrabalheConosco = () => {
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className="trabalhe-conosco__submit-btn">
-                  Enviar Candidatura
+                <button type="submit" className="trabalhe-conosco__submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? 'Enviando Currículo...' : 'Enviar Candidatura'}
                 </button>
               </form>
             </div>
