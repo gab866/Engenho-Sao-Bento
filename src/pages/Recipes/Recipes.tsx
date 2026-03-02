@@ -5,6 +5,7 @@ import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import RecipeModal from '../../components/RecipeModal/RecipeModal';
 import { recipes } from '../../data/recipesData';
 import type { Recipe } from '../../data/recipesData';
+import receitasBanner from '../../assets/images/receitas.png';
 import './Recipes.scss';
 
 const Recipes = () => {
@@ -43,7 +44,7 @@ const Recipes = () => {
       <PageHero
         title="Receitas"
         subtitle="Inspire-se com nossas sugestões"
-        backgroundImage="/images/recipes-hero.png"
+        backgroundImage={receitasBanner}
       />
 
       <RecipeFilters

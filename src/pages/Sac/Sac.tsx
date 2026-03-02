@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
+import PageHero from '../../components/PageHero/PageHero';
+import sacBanner from '../../assets/images/fotosac.JPG';
 import './Sac.scss';
 
 const faqs = [
@@ -34,15 +36,11 @@ const Sac = () => {
 
   return (
     <div className="sac">
-      {/* Hero Section */}
-      <section className="sac__hero">
-        <div className="sac__hero-content">
-          <h1 className="sac__hero-title">Serviço de Atendimento ao Consumidor</h1>
-          <p className="sac__hero-subtitle">
-            Estamos aqui para ouvir você. Tire suas dúvidas, envie sugestões ou reclamações.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Serviço de Atendimento ao Consumidor"
+        subtitle="Estamos aqui para ouvir você. Tire suas dúvidas, envie sugestões ou reclamações."
+        backgroundImage={sacBanner}
+      />
 
       {/* Main Content Section */}
       <section className="sac__content">

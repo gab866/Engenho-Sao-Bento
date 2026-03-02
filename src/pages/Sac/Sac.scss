@@ -4,47 +4,6 @@
 .sac {
   min-height: 100vh;
 
-  // Hero Section
-  &__hero {
-    position: relative;
-    background: linear-gradient(135deg, $primary-green 0%, rgba($primary-green-light, 0.8) 100%);
-    padding: $spacing-5xl $spacing-lg;
-    text-align: center;
-    color: $white;
-
-    @include respond-to(md) {
-      padding: $spacing-5xl $spacing-2xl;
-    }
-  }
-
-  &__hero-content {
-    @include container;
-    @include flex-column-center;
-    gap: $spacing-lg;
-  }
-
-  &__hero-title {
-    font-family: $font-serif;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    margin: 0;
-
-    @include respond-to(md) {
-      font-size: $font-size-5xl;
-    }
-  }
-
-  &__hero-subtitle {
-    font-size: $font-size-lg;
-    opacity: 0.95;
-    max-width: 700px;
-    margin: 0;
-
-    @include respond-to(md) {
-      font-size: $font-size-xl;
-    }
-  }
-
   // Content Section
   &__content {
     padding: $spacing-4xl $spacing-lg;

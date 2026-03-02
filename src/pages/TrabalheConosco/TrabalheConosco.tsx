@@ -10,22 +10,24 @@ import './TrabalheConosco.scss';
 
 // Zod validation schema
 const formSchema = z.object({
-  name: z.string().min(3, 'Nome deve ter pelo menos 3 caracteres').max(100, 'Nome muito longo'),
-  email: z.string().email('Email inválido').max(255, 'Email muito longo'),
-  phone: z.string().min(10, 'Telefone inválido').max(20, 'Telefone inválido'),
-  position: z.string().min(3, 'Informe a posição de interesse').max(100, 'Texto muito longo'),
-  message: z.string().max(1000, 'Mensagem muito longa').optional(),
+  Nome: z.string().min(3, 'Nome deve ter pelo menos 3 caracteres').max(100, 'Nome muito longo'),
+  Email: z.string().email('Email inválido').max(255, 'Email muito longo'),
+  Telefone: z.string().min(10, 'Telefone inválido').max(20, 'Telefone inválido'),
+  Vaga: z.string().min(3, 'Informe a posição de interesse').max(100, 'Texto muito longo'),
+  Mensagem: z.string().max(1000, 'Mensagem muito longa').optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
 
 const TrabalheConosco = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -53,11 +55,29 @@ const TrabalheConosco = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const onSubmit = () => {
-    // Como a validação do Zod (react-hook-form) já verificou os campos e passou por eles:
-    // Submetemos o formulário no formato 'antigo' do navegador
-    // Isso é necessário porque o Web3Forms exige isso para aceitar arquivos na versão gratuita.
+    // Como estamos lidando com envio de currículos (arquivos), o FormSubmit 
+    // exige que seja um formulário tradicional e não permite envio por AJAX.
+    // Para contornar e não sair da página, enviamos para um iframe oculto.
     if (formRef.current) {
+      setIsUploading(true);
+      toast.loading('Enviando seu currículo e informações...', { id: 'uploading' });
       formRef.current.submit();
+    }
+  };
+
+  const handleIframeLoad = () => {
+    // Quando o iframe oculto terminar de carregar, significa que a página 
+    // "Thank You" do FormSubmit carregou por baixo dos panos e a submissão finalizou!
+    if (isUploading) {
+      setIsUploading(false);
+      toast.dismiss('uploading');
+      toast.success('Currículo enviado com sucesso!', {
+        description: 'Agradecemos o seu interesse. Em breve entraremos em contato.',
+      });
+      // Limpar formulário na tela
+      reset();
+      formRef.current?.reset();
+      setSelectedFile(null);
     }
   };
 
@@ -123,8 +143,16 @@ const TrabalheConosco = () => {
                 </p>
               </div>
 
+              <iframe
+                name="hidden_iframe"
+                id="hidden_iframe"
+                style={{ display: 'none' }}
+                onLoad={handleIframeLoad}
+              ></iframe>
+
               <form 
                 ref={formRef}
+                target="hidden_iframe"
                 action="https://formsubmit.co/curriculo@esbento.com.br"
                 method="POST"
                 encType="multipart/form-data"
@@ -134,6 +162,7 @@ const TrabalheConosco = () => {
                 {/* Substitua o email acima pelo email do Engenho São Bento */}
                 <input type="hidden" name="_subject" value="Novo currículo - Trabalhe Conosco Engenho São Bento" />
                 <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="box" />
                 {/* Name Field */}
                 <div className="trabalhe-conosco__form-field">
                   <label htmlFor="name" className="trabalhe-conosco__label">
@@ -144,10 +173,10 @@ const TrabalheConosco = () => {
                     type="text"
                     placeholder="Seu nome completo"
                     className="trabalhe-conosco__input"
-                    {...register('name')}
+                    {...register('Nome')}
                   />
-                  {errors.name && (
-                    <p className="trabalhe-conosco__error">{errors.name.message}</p>
+                  {errors.Nome && (
+                    <p className="trabalhe-conosco__error">{errors.Nome.message}</p>
                   )}
                 </div>
 
@@ -161,10 +190,10 @@ const TrabalheConosco = () => {
                     type="email"
                     placeholder="seu@email.com"
                     className="trabalhe-conosco__input"
-                    {...register('email')}
+                    {...register('Email')}
                   />
-                  {errors.email && (
-                    <p className="trabalhe-conosco__error">{errors.email.message}</p>
+                  {errors.Email && (
+                    <p className="trabalhe-conosco__error">{errors.Email.message}</p>
                   )}
                 </div>
 
@@ -178,10 +207,10 @@ const TrabalheConosco = () => {
                     type="text"
                     placeholder="(00) 00000-0000"
                     className="trabalhe-conosco__input"
-                    {...register('phone')}
+                    {...register('Telefone')}
                   />
-                  {errors.phone && (
-                    <p className="trabalhe-conosco__error">{errors.phone.message}</p>
+                  {errors.Telefone && (
+                    <p className="trabalhe-conosco__error">{errors.Telefone.message}</p>
                   )}
                 </div>
 
@@ -195,10 +224,10 @@ const TrabalheConosco = () => {
                     type="text"
                     placeholder="Ex: Assistente Administrativo"
                     className="trabalhe-conosco__input"
-                    {...register('position')}
+                    {...register('Vaga')}
                   />
-                  {errors.position && (
-                    <p className="trabalhe-conosco__error">{errors.position.message}</p>
+                  {errors.Vaga && (
+                    <p className="trabalhe-conosco__error">{errors.Vaga.message}</p>
                   )}
                 </div>
 
@@ -212,10 +241,10 @@ const TrabalheConosco = () => {
                     rows={4}
                     placeholder="Conte-nos um pouco sobre você..."
                     className="trabalhe-conosco__textarea"
-                    {...register('message')}
+                    {...register('Mensagem')}
                   />
-                  {errors.message && (
-                    <p className="trabalhe-conosco__error">{errors.message.message}</p>
+                  {errors.Mensagem && (
+                    <p className="trabalhe-conosco__error">{errors.Mensagem.message}</p>
                   )}
                 </div>
 
@@ -241,8 +270,12 @@ const TrabalheConosco = () => {
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className="trabalhe-conosco__submit-btn" disabled={isSubmitting}>
-                  {isSubmitting ? 'Enviando Currículo...' : 'Enviar Candidatura'}
+                <button 
+                  type="submit" 
+                  className="trabalhe-conosco__submit-btn" 
+                  disabled={isSubmitting || isUploading}
+                >
+                  {isSubmitting || isUploading ? 'Enviando Currículo...' : 'Enviar Candidatura'}
                 </button>
               </form>
             </div>
