@@ -1,3 +1,4 @@
+import arrozPimonteseImg from '../../assets/images/arrozpimontese.png';
 import './RecipeOfMonth.scss';
 
 const RecipeOfMonth = () => {
@@ -21,7 +22,7 @@ const RecipeOfMonth = () => {
           </div>
 
           <div className="recipe-of-month__image">
-            <img src="/src/assets/images/arrozpimontese.png" alt="Arroz Pimontese" />
+            <img src={arrozPimonteseImg} alt="Arroz Pimontese" />
           </div>
         </div>
       </div>
