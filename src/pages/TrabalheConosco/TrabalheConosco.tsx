@@ -81,14 +81,7 @@ const TrabalheConosco = () => {
     }
   };
 
-  const benefits = [
-    'Plano de saúde e odontológico',
-    'Vale refeição e alimentação',
-    'Vale transporte',
-    'Programa de treinamento e desenvolvimento',
-    'Participação nos resultados',
-    'Ambiente colaborativo e inclusivo',
-  ];
+
 
   return (
     <div className="trabalhe-conosco">
