@@ -120,17 +120,7 @@ const TrabalheConosco = () => {
               </p>
             </div>
 
-            <div className="trabalhe-conosco__benefits">
-              <h3 className="trabalhe-conosco__benefits-title">Benefícios</h3>
-              <ul className="trabalhe-conosco__benefits-list">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="trabalhe-conosco__benefit-item">
-                    <span className="trabalhe-conosco__benefit-indicator"></span>
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            
           </div>
 
           {/* Right Column - Form */}

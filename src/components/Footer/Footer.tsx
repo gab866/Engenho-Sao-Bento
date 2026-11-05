@@ -12,8 +12,7 @@ const Footer = () => {
           <div className="footer__column">
             <h3 className="footer__title">Sobre o Engenho</h3>
             <p className="footer__text">
-              Tradição e qualidade desde 1950. Produzindo os melhores grãos do Brasil com
-              respeito ao meio ambiente e às pessoas.
+              Desde 1989 alimentando o Brasil e o mundo com o melhor arroz.
             </p>
           </div>
 
@@ -38,11 +37,11 @@ const Footer = () => {
               </li>
               <li>
                 <Mail size={18} />
-                <span>contato@engenhosaobento.com.br</span>
+                <span>contato@esbento.com.br</span>
               </li>
               <li>
                 <MapPin size={18} />
-                <span>Pelotas - RS - Brasil</span>
+                <span>BR-116 KM 520, número 6090, Pelotas, RS, Brasil</span>
               </li>
             </ul>
           </div>
@@ -50,18 +49,14 @@ const Footer = () => {
           <div className="footer__column">
             <h3 className="footer__title">Redes Sociais</h3>
             <div className="footer__social">
-              <a href="#facebook" aria-label="Facebook" className="footer__social-link">
-                <Facebook size={24} />
-              </a>
+              
               <a href="#instagram" aria-label="Instagram" className="footer__social-link">
                 <Instagram size={24} />
               </a>
-              <a href="#linkedin" aria-label="LinkedIn" className="footer__social-link">
+              <a href="https://www.linkedin.com/company/engenhosaobento/" aria-label="LinkedIn" className="footer__social-link">
                 <Linkedin size={24} />
               </a>
-              <a href="#youtube" aria-label="YouTube" className="footer__social-link">
-                <Youtube size={24} />
-              </a>
+              
             </div>
           </div>
         </div>

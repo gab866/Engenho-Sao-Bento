@@ -13,7 +13,7 @@ const CTASection = () => {
             <a href="/trabalhe-conosco" className="btn btn-primary">
               Trabalhe Conosco
             </a>
-            <a href="#representante" className="btn btn-outline">
+            <a href="/trabalhe-conosco" className="btn btn-outline">
               Seja um Representante
             </a>
           </div>

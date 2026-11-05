@@ -14,19 +14,7 @@ const Products = () => {
         backgroundImage={productsHeroImage}
       />
 
-      <div className="products-page__intro section">
-        <div className="container">
-          <div className="products-page__intro-content">
-            <h2>Três Marcas, Uma Mesma Dedicação</h2>
-            <p>
-              No Engenho São Bento, desenvolvemos três marcas distintas para atender 
-              diferentes necessidades e perfis de consumidores. Cada uma carrega nosso 
-              compromisso com a qualidade, mas com propostas únicas que refletem 
-              tradição, premium e especialidade.
-            </p>
-          </div>
-        </div>
-      </div>
+      
 
       {brands.map((brand, index) => (
         <BrandShowcase

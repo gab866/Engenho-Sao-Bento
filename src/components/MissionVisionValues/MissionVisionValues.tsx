@@ -25,7 +25,7 @@ const MissionVisionValues = () => {
             </div>
             <h3 className="mvv__title">Nossa Missão</h3>
             <p className="mvv__text">
-              Levar arroz de qualidade premium para a mesa das famílias brasileiras, 
+              Levar arroz de qualidade para a mesa das famílias brasileiras, 
               cultivando tradição, inovação e sustentabilidade em cada grão processado.
             </p>
           </div>

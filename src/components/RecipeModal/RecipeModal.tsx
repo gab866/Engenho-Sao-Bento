@@ -133,12 +133,7 @@ const RecipeModal = ({ recipe, isOpen, onClose }: RecipeModalProps) => {
               </ol>
             </div>
 
-            {recipe.tips && (
-              <div className="recipe-modal__section recipe-modal__tips">
-                <h3 className="recipe-modal__subtitle">Dicas do Chef</h3>
-                <p>{recipe.tips}</p>
-              </div>
-            )}
+            
 
             <div className="recipe-modal__actions">
               <button className="btn btn-outline" onClick={handlePrint}>

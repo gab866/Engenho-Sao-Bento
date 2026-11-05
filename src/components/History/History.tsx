@@ -10,7 +10,7 @@ const History = () => {
             <span className="history__label">Nossa Trajetória</span>
             <h2 className="history__title">Uma história que vai além do grão</h2>
             <p className="history__paragraph">
-              Fundado em 17 de maio de 1989, o Engenho São Bento teve sua origem em uma área de apenas 500 metros quadrados da Fazenda Liscano,
+              Fundado em 17 de maio de 1989 alimentando o Brasil e o mundo, o Engenho São Bento teve sua origem em uma área de apenas 500 metros quadrados da Fazenda Liscano,
                no município de Arroio Grande, Rio Grande do Sul com a proposta de beneficiar o arroz produzido na própria fazenda. 
               Uma vez consolidada, a empresa projetou-se no mercado, com a intenção de atuar mais amplamente no mercado de beneficiamento de arroz.
             </p>
@@ -24,8 +24,11 @@ const History = () => {
               Dentro dessa estrutura estão diferentes linhas industrias de arroz branco, arroz parboilizado e arroz parboilizado integral, além de toda estrutura tecnológica de armazenagem de grãos.
             </p>
           </div>
-          <div className="history__image">
-            <img src={plantationImg} alt="Plantações de arroz" />
+          <div className="history__image-wrapper">
+            <div className="history__image">
+              <img src={plantationImg} alt="Plantações de arroz Engenho São Bento" />
+            
+            </div>
           </div>
         </div>
       </div>

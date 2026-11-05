@@ -1,6 +1,6 @@
 import Hero from '../../components/Hero/Hero';
 import WhyChoose from '../../components/WhyChoose/WhyChoose';
-import RecipeOfMonth from '../../components/RecipeOfMonth/RecipeOfMonth';
+import RecipesCarousel from '../../components/RecipesCarousel/RecipesCarousel';
 import CTASection from '../../components/CTASection/CTASection';
 import './Home.scss';
 
@@ -9,7 +9,7 @@ const Home = () => {
     <div className="home">
       <Hero />
       <WhyChoose />
-      <RecipeOfMonth />
+      <RecipesCarousel />
       <CTASection />
     </div>
   );

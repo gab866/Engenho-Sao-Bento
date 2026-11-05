@@ -44,7 +44,7 @@ export const recipes: Recipe[] = [
       '100 gramas de queijo parmesão ralado fresco',
     ],
     instructions: [
-      'Você pode usar tanto o arroz fresquinho, cozido na hora, quanto o arroz amanhecido do dia anterior - durante o preparo, ele recupera o frescor. Pique o alho bem fininho, ou triture em um triturador. Corte a calabresa em cubinhos pequenos.',
+      'Você pode usar o arroz fresquinho, cozido na hora. Pique o alho bem fininho, ou triture em um triturador. Corte a calabresa em cubinhos pequenos.',
       'Em uma panela grande, em fogo médio, derreta a manteiga ou a margarina. Adicione o alho, misture bem e refogue por 1 minuto, ou até dourar.',
       'Acrescente a calabresa, misture bem e continue refogando até os cubinhos ficarem dourados. Mexa de vez em quando para não grudar no fundo da panela.',
       'Abaixe o fogo, adicione o arroz cozido e misture bem para o alho e a manteiga envolverem os grãos.',

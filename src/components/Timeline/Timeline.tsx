@@ -41,7 +41,7 @@ const Timeline = () => {
       <div className="container">
         <div className="section-title">
           <h2>Nossa Trajetória</h2>
-          <p>Mais de 50 anos de história e evolução contínua</p>
+          <p>Mais de 35 anos de história e evolução contínua</p>
         </div>
 
         <div className="timeline__wrapper">

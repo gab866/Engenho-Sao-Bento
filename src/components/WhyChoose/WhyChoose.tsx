@@ -1,4 +1,4 @@
-import { Wheat, Sprout, Shield, Award } from 'lucide-react';
+import { Wheat, Sprout, Award } from 'lucide-react';
 import './WhyChoose.scss';
 
 interface Feature {
@@ -10,18 +10,13 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: <Wheat size={48} />,
-    title: 'Qualidade Premium',
-    description: 'Grãos selecionados com rigor para garantir o melhor sabor e nutrição',
+    title: 'Qualidade',
+    description: 'Grãos selecionados com rigor para garantir o melhor sabor e nutrição para você',
   },
   {
     icon: <Sprout size={48} />,
     title: 'Sustentabilidade',
-    description: 'Práticas agrícolas responsáveis que respeitam o meio ambiente',
-  },
-  {
-    icon: <Shield size={48} />,
-    title: 'Certificações',
-    description: 'Produtos certificados seguindo os mais altos padrões de qualidade',
+    description: 'Práticas agrícolas responsáveis e energia 100% renovável',
   },
   {
     icon: <Award size={48} />,
@@ -39,7 +34,7 @@ const WhyChoose = () => {
           <p>Comprometimento com a qualidade e a satisfação de nossos clientes</p>
         </div>
 
-        <div className="why-choose__grid grid grid-4">
+        <div className="why-choose__grid grid grid-3">
           {features.map((feature, index) => (
             <div key={index} className="why-choose__card card">
               <div className="why-choose__icon">{feature.icon}</div>
