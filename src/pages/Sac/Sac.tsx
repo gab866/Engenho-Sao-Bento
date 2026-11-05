@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: 'Quais são os canais de atendimento disponíveis?',
-    answer: 'Você pode entrar em contato conosco através do telefone +55 (53) 3025-3500 ou pelo e-mail contato@engenhosaobento.com.br.',
+    answer: 'Você pode entrar em contato conosco através do telefone +55 (53) 3025-3500 ou pelo e-mail contato@esbento.com.br.',
   },
   {
     question: 'Onde encontro os produtos do Engenho São Bento?',
@@ -62,7 +62,7 @@ const Sac = () => {
                 <Mail className="sac__contact-icon" size={24} />
                 <div>
                   <h4 className="sac__contact-label">E-mail</h4>
-                  <p className="sac__contact-value">contato@engenhosaobento.com.br</p>
+                  <p className="sac__contact-value">contato@esbento.com.br</p>
                 </div>
               </div>
               
@@ -70,7 +70,7 @@ const Sac = () => {
                 <MapPin className="sac__contact-icon" size={24} />
                 <div>
                   <h4 className="sac__contact-label">Endereço</h4>
-                  <p className="sac__contact-value">Pelotas - RS - Brasil</p>
+                  <p className="sac__contact-value">BR-116 KM 520, número 6090, Pelotas, RS, Brasil</p>
                 </div>
               </div>
             </div>
